@@ -37,7 +37,7 @@ void esya_goruntule(const MuzayedeEsya *esya){ //Özelliklerini tanýmladýðýmýz eþ
 	printf("En yuksek teklif : %.2lf TL\n",esya->en_yuksek_teklif.teklif);
 }
 
-void odemeyi_hesapla(Arttirma a, int kazanan_no){
+void odemeyi_hesapla(Arttirma a, int kazanan_no){ //Teklif verecek her kiþi için ödemesini kontrol ediyoruz.
 	
 	double odeme;
 	int i;
@@ -55,7 +55,7 @@ void odemeyi_hesapla(Arttirma a, int kazanan_no){
 	}
 }
 
-void acikarttirma(Arttirma a){
+void acikarttirma(Arttirma a){ //Verilen teklif mevcut teklifden büyükse bunu güncelliyoruz.
 	
 	double enyuksek_teklif;
 	double odeme;
