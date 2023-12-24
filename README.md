@@ -1,5 +1,5 @@
-# acikartirma
-Fonksiyon, typedef ve struct yapıları kullanılarak yapılan bir açık artırma uygulaması. English : An auction application using function, typedef and struct structures.
+**Açık Artırma**
+Fonksiyon, typedef ve struct yapıları kullanılarak yapılan bir açık artırma uygulaması. 
 
 **Typedef Yapısı**
 Typedef yapısı kullanılarak örneğin **int** ile tanımlanan bir veriyi başka veriler için mantıksal olarak tanımlanmış olunur. Kod içinde anlatılmak gerekilirse : 
