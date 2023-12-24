@@ -1,4 +1,5 @@
 **Açık Artırma**
+
 Fonksiyon, typedef ve struct yapıları kullanılarak yapılan bir açık artırma uygulaması. 
 
 **Typedef Yapısı**
