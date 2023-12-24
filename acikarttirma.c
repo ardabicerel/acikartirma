@@ -2,26 +2,26 @@
 #include <stdlib.h>
 #include <string.h>
 
-	typedef struct
+	typedef struct //Teklif verecek kiþiyi tanýmlýyoruz.
 	{
 		char teklifveren_isim[50];
 		double teklif;
 	}TEKLIF_VEREN;
 	
-	typedef struct
+	typedef struct //Kaç kiþinin teklif verdiðini ve onlarýn tekliflerini bir bütün þekilde tanýmlýyoruz.
 	{
 		int teklifveren_sayisi;
 		TEKLIF_VEREN *teklifler;
 	}Arttirma;
 	
-	typedef struct
+	typedef struct //Satýlan eþyanýn ismini, ilk ücretini ve gelecek teklifler sonrasý en yüksek teklifini tanýmlýyoruz.
 	{
 		char esya[50];
 		double mevcut_teklif;
 		TEKLIF_VEREN en_yuksek_teklif;
 	}MuzayedeEsya;
 
-void esyayi_tanimla(MuzayedeEsya *esya, const char *esya_isim, double baslangic_teklif){
+void esyayi_tanimla(MuzayedeEsya *esya, const char *esya_isim, double baslangic_teklif){ //Eþyamýzýn özelliklerini bu fonksiyonda tanýmlýyoruz.
 	
 	strcpy(esya->esya, esya_isim);
 	esya->mevcut_teklif = baslangic_teklif;
@@ -29,7 +29,7 @@ void esyayi_tanimla(MuzayedeEsya *esya, const char *esya_isim, double baslangic_
 	esya->en_yuksek_teklif.teklif = 0.0;
 }
 
-void esya_goruntule(const MuzayedeEsya *esya){
+void esya_goruntule(const MuzayedeEsya *esya){ //Özelliklerini tanýmladýðýmýz eþyayý çýktý olarak veriyoruz.
 	
 	printf("\nMuzeyedeki esya : %s\n",esya->esya);
 	printf("Mevcut teklif : %.2lf TL\n",esya->mevcut_teklif);
@@ -76,17 +76,17 @@ void acikarttirma(Arttirma a){
 	}
 }
 
-int main() { 
+int main() {
 	
-	MuzayedeEsya satilan_esya;
-	TEKLIF_VEREN teklifler[5];
+	MuzayedeEsya satilan_esya; //Eþyamýzý typedef yapýsýyla tanýmlýyoruz ki bilgilerini struct yapýsýyla da kolaylýkla çekelim.
+	TEKLIF_VEREN teklifler[5]; //Açýk artýrmamýza giren kiþilerin ismini, teklifini alýyoruz ve açýk artýrmayý 5 kiþi olarak sýnýrlýyoruz.
 	int teklif_sayisi = 0;
 	
-	esyayi_tanimla(&satilan_esya, "Dizustu Bilgisayar", 12.50);
+	esyayi_tanimla(&satilan_esya, "Dizustu Bilgisayar", 12.50); //Satýlan eþyamýzý tanýmlýyoruz.
 	
-	esya_goruntule(&satilan_esya);
+	esya_goruntule(&satilan_esya); //Burada tanýmlanan eþyayý çýktý olarak veriyoruz.
 	
-		while(1){
+		while(1){ //Teklif veren kiþi sayýsý 5 olana dek açýk artýrmamýzý sürdürüyoruz.
 			char isim[50];
 			double teklif_miktari;
 		
@@ -101,7 +101,7 @@ int main() {
 			printf("\nTeklifinizi giriniz : ");
 			scanf("%lf",&teklif_miktari);
 		
-			if(teklif_miktari > satilan_esya.mevcut_teklif){
+			if(teklif_miktari > satilan_esya.mevcut_teklif){ //Kiþinin verdiði yeni teklif eski teklifden büyükse bu bilgiyi güncelliyoruz.
 			
 				strcpy(satilan_esya.en_yuksek_teklif.teklifveren_isim, isim);
 				satilan_esya.en_yuksek_teklif.teklif = teklif_miktari;
@@ -113,16 +113,16 @@ int main() {
 				teklif_sayisi++;
 			}
 		
-			else{
+			else{ //Eðer mevcut teklifden az bir teklif verilirse teklifi veren kiþinin tekrardan ismini girip teklifini mevcut teklifden büyük olarak girmesini istiyoruz.
 				printf("\nUzgunum, teklifin olan %.2lf TL mevcut en yuksek teklifden az. (Su anki en yuksek teklif : %.2lf)\n",
 				teklif_miktari,satilan_esya.mevcut_teklif);
 			}
 	}
 	
-	printf("\nNihai Muzayede Sonuclari :\n");
+	printf("\nNihai Muzayede Sonuclari :\n"); //Kiþi sayýsý istenilen sayýya ulaþtýðýnda müzayede bitiyor ve en yüksek teklifi veren satýlan eþyanýn sahibi oluyor.
 	esya_goruntule(&satilan_esya);
 	
-	printf("\nTeklifler :\n");
+	printf("\nTeklifler :\n"); //Muzayede boyunca verilen teklifleri de sýralýyoruz.
 	
 	for(int i=0; i < teklif_sayisi; i++){
 	
