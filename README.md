@@ -6,8 +6,9 @@ Typedef yapısı kullanılarak örneğin **int** ile tanımlanan bir veriyi baş
 
 typedef int tamsayi;
 
-int main(){
+int main() {
 tamsayi ts1;
+
 }
 
 **Struct Yapısı**
@@ -18,6 +19,7 @@ struct ogrenci_bilgi {
   char ogrenci_soyisim;
   int okul_numarasi;
   char sinif;
+  
 };
 
 **Pointer(İşaretçiler)**
